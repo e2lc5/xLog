@@ -592,9 +592,12 @@ public class Logger {
       msg = log.msg;
     }
 
+    // delete
+    // : ((thread != null ? (thread + SystemCompat.lineSeparator) : "") to
+    // : ((thread != null ? (thread) : "")
     printer.println(logLevel, tag, logConfiguration.withBorder
         ? logConfiguration.borderFormatter.format(new String[]{thread, stackTrace, msg})
-        : ((thread != null ? (thread + SystemCompat.lineSeparator) : "")
+        : ((thread != null ? (thread) : "")
         + (stackTrace != null ? (stackTrace + SystemCompat.lineSeparator) : "")
         + msg));
   }
